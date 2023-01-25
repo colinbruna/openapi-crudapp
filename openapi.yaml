@@ -7,16 +7,16 @@ info:
     Documentação CrudApp
     Esse é uma exemplo de documentação.
   
-    # Introdução
+    ## Introdução
     Texto de introdução.
 
-    # OpenAPI Especificação
+    ## OpenAPI Especificação
     Texto de exemplo.
 
-    # Compartilhamento de recursos
+    ## Compartilhamento de recursos
     Texto de exemplo.
 
-    # Autenticação
+    ## Autenticação
     Texto de exemplo    
   
 paths:
