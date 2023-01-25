@@ -1,10 +1,10 @@
 openapi: 3.0.3
 
-info:
+seo:
   title: Crud App
   version: 1.0.0
   description: Documentação CrudApp
-  x-logo:
+  logo:
     image: ./img/flork.png
     altText: Crud App
   
