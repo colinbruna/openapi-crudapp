@@ -4,6 +4,9 @@ info:
   title: Crud App
   version: 1.0.0
   description: Documentação CrudApp
+  x-logo:
+    url: 'flork.png'
+    altText: Petstore logo
   
 paths:
   /empresas:
