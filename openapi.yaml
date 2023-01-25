@@ -20,7 +20,7 @@ paths:
   /empresas:
     post:
       operationId: salvar
-      summary: Salva uma nova empresa.
+      summary: Salva uma nova empresa
       description: Descrever o processo para salvar uma nova empresa.
       tags:
         - Empresa
