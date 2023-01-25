@@ -5,8 +5,8 @@ info:
   version: 1.0.0
   description: Documentação CrudApp
   x-logo:
-    url: 'flork.png'
-    altText: Petstore logo
+    url: 'https://github.com/colinbruna/openapi-crudapp/blob/main/img/flork.png'
+    altText: Crud App
   
 paths:
   /empresas:
