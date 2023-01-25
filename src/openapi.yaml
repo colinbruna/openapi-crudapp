@@ -3,9 +3,7 @@ openapi: 3.0.3
 info:
   title: Crud App
   version: 1.0.0
-  description: Documentação CrudApp
-  logo:
-    image: '../assets/img/flork.png'
+  description: Documentação CrudApp  
   
 paths:
   /empresas:
