@@ -21,8 +21,7 @@ paths:
     post:
       operationId: salvar
       summary: |
-        Salva uma nova empresa
-        Descrever como se deve salvar uma nova empresa.
+        ### Descrever o processo de salvar uma nova empresa.
       tags:
         - Empresa
       requestBody:
