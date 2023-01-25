@@ -1,12 +1,9 @@
 openapi: 3.0.3
 
-seo:
+info:
   title: Crud App
   version: 1.0.0
   description: Documentação CrudApp
-  logo:
-    image: ./img/flork.png
-    altText: Crud App
   
 paths:
   /empresas:
@@ -115,9 +112,11 @@ components:
       properties:
         nome:
           type: string
+          maxLength: 50
           example: 'Mercado J'
         cnpj:
           type: string
+          description: 'somente números'
           example: '36194570000107'
         telefone:
           type: string
