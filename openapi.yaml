@@ -3,7 +3,21 @@ openapi: 3.0.3
 info:
   title: Crud App
   version: 1.0.0
-  description: Documentação CrudApp  
+  description: 
+    Documentação CrudApp
+    Esse é uma exemplo de documentação.
+  
+    # Introdução
+    Texto de introdução.
+
+    # OpenAPI Especificação
+    Texto de exemplo.
+
+    # Compartilhamento de recursos
+    Texto de exemplo.
+
+    # Autenticação
+    Texto de exemplo    
   
 paths:
   /empresas:
