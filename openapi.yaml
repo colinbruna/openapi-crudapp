@@ -4,7 +4,7 @@ info:
   title: Crud App
   version: 1.0.0
   description: Documentação CrudApp
-  logo:
+  x-logo:
     image: ./img/flork.png
     altText: Crud App
   
