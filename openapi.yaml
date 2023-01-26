@@ -141,7 +141,7 @@ components:
           maxLength: 11
           pattern: ^\d{11}$ 
           description: 'ddd + telefone'
-          example: '519988774411'
+          example: '51998877441'
         endereco:
           type: object
           properties:
