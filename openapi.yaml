@@ -166,13 +166,44 @@ components:
     EmpresaResponse:
       description: 'Representa um modelo de empresa de resposta'
       type: object
+      required: 
+        - nome
+        - cnpj
+        - telefone
       properties:
         nome:
-          type: string
+          type: string          
           example: 'Mercado J'
         cnpj:
-          type: string
+          type: string          
           example: '36194570000107'
+        email:
+          type: string          
+          example: 'aaa@email.com'
+        telefone:
+          type: string          
+          example: '519988774411'
+        endereco:
+          type: object
+          properties:
+            cep:
+              type: string
+              example: '91350-300'          
+            logradouro:
+              type: string
+              example: 'rua nova'
+            complemento:
+              type: string
+              example: '100'
+            bairro:
+              type: string
+              example: 'bairro'
+            localidade:
+              type: string
+              example: 'cidade'
+            uf:
+              type: string
+              example: 'RS'
     ExceptionResponse:
       description: 'Representa um modelo de erro'
       type: object
