@@ -182,7 +182,7 @@ components:
           example: 'aaa@email.com'
         telefone:
           type: string          
-          example: '519988774411'
+          example: '51998877441'
         endereco:
           type: object
           properties:
