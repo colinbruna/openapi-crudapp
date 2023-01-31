@@ -124,7 +124,9 @@ components:
       required: 
         - nome
         - cnpj
+        - email
         - telefone
+        - endereco
       properties:
         nome:
           type: string          
@@ -144,25 +146,37 @@ components:
           example: '51998877441'
         endereco:
           type: object
-          properties:
-            cep:
-              type: string
-              example: '91350-300'          
-            logradouro:
-              type: string
-              example: 'rua nova'
-            complemento:
-              type: string
-              example: '100'
-            bairro:
-              type: string
-              example: 'bairro'
-            localidade:
-              type: string
-              example: 'cidade'
-            uf:
-              type: string
-              example: 'RS'
+          allOf:
+            - $ref: '#/components/schemas/EnderecoRequest'
+    EnderecoRequest:
+      description: 'Representa um modelo de endereço para criação de uma empresa'
+      type: object
+      required: 
+        - cep
+        - logradouro
+        - complemento
+        - bairro
+        - localidade
+        - uf
+      properties:
+        cep:
+          type: string
+          example: '91350-300'          
+        logradouro:
+          type: string
+          example: 'rua nova'
+        complemento:
+          type: string
+          example: '100'
+        bairro:
+          type: string
+          example: 'bairro'
+        localidade:
+          type: string
+          example: 'cidade'
+        uf:
+          type: string
+          example: 'RS'
     EmpresaResponse:
       description: 'Representa um modelo de empresa de resposta'
       type: object
