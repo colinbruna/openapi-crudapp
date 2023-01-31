@@ -21,7 +21,7 @@ info:
     Texto de exemplo    
   
 paths:
-  /empresas/:
+  /empresas:
     post:
       operationId: salvar
       summary: Salva uma nova empresa
