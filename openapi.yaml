@@ -12,7 +12,10 @@ info:
     Esse é um exemplo de documentação.
   
     ## Introdução
-    Texto de introdução.    
+    Texto de introdução. 
+
+  image:
+    url: https://www.take.net/blog/wp-content/uploads/2017/06/o-que-e-fluxo-de-informacao.png 
 
     ## Compartilhamento de recursos
     Texto de exemplo.
