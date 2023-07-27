@@ -8,9 +8,9 @@ info:
     altText: Teste logo
   description: |
     Documentação CrudApp
-    
+
     Esse é um exemplo de documentação.
-  
+
     ## Introdução
     Texto de introdução.    
 
@@ -18,9 +18,34 @@ info:
     Texto de exemplo.
 
     ## Autenticação
-    Texto de exemplo    
-  
+    Texto de exemplo
+
 paths:
+  /funcionarios:
+    post:
+      operationId: salvarFuncionario
+      summary: Salva uma nova empresa
+      description: Descrever o processo para salvar uma nova empresa.
+      tags:
+        - Funcionario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FuncionarioRequest"
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmpresaResponse"
+        "422":
+          description: "Unprocessable Entity"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExceptionResponse"
   /empresas:
     post:
       operationId: salvar
@@ -31,97 +56,100 @@ paths:
       requestBody:
         content:
           application/json:
-              schema:
-                $ref: '#/components/schemas/EmpresaRequest'
+            schema:
+              $ref: "#/components/schemas/EmpresaRequest"
       responses:
-        '201':
-          description: 'Created'
+        "201":
+          description: "Created"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EmpresaResponse'
-        '422':
-          description: 'Unprocessable Entity'
+                $ref: "#/components/schemas/EmpresaResponse"
+        "422":
+          description: "Unprocessable Entity"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExceptionResponse'
+                $ref: "#/components/schemas/ExceptionResponse"
     get:
       operationId: listar
       summary: Lista todas as empresas
       tags:
         - Empresa
       responses:
-        '200':
-          description: 'OK'
+        "200":
+          description: "OK"
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/EmpresaResponse'
+                  $ref: "#/components/schemas/EmpresaResponse"
   /empresas/{id}:
     parameters:
-        - schema:
-            type: string
-            example: '63c6d5ca5578ec03877be13e'
-          name: id
-          description: 'id'
-          in: path
-          required: true
+      - schema:
+          type: string
+          example: "63c6d5ca5578ec03877be13e"
+        name: id
+        description: "id"
+        in: path
+        required: true
     get:
       operationId: buscar
       summary: Consulta uma empresa por id
       tags:
         - Empresa
       responses:
-        '200':
-          description: 'OK'
+        "200":
+          description: "OK"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EmpresaResponse'
-        '404':
-          description: 'Not Found'
+                $ref: "#/components/schemas/EmpresaResponse"
+        "404":
+          description: "Not Found"
     put:
       operationId: alterar
       summary: Altera uma empresa
       tags:
         - Empresa
       responses:
-        '200':
-          description: 'OK'
+        "200":
+          description: "OK"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EmpresaResponse'
-        '404':
-          description: 'Not Found'
+                $ref: "#/components/schemas/EmpresaResponse"
+        "404":
+          description: "Not Found"
     delete:
       operationId: excluir
       summary: Deleta uma empresa
       tags:
         - Empresa
       responses:
-        '200':
-          description: 'OK'
-        '404':
-          description: 'Not Found'
-          
+        "200":
+          description: "OK"
+        "404":
+          description: "Not Found"
+
 tags:
   - name: Empresa
     description: Integrações com empresa
-    
+
+  - name: Funcionario
+    description: Integrações com funcionário
+
 servers:
-  - description: 'Ambiente local de desenvolvimento'
-    url: 'http://localhost:8080'
+  - description: "Ambiente local de desenvolvimento"
+    url: "http://localhost:8080"
 
 components:
   schemas:
     EmpresaRequest:
-      description: 'Representa um modelo para criação de uma empresa'
+      description: "Representa um modelo para criação de uma empresa"
       type: object
-      required: 
+      required:
         - nome
         - cnpj
         - email
@@ -129,29 +157,29 @@ components:
         - endereco
       properties:
         nome:
-          type: string          
-          example: 'Mercado J'
+          type: string
+          example: "Mercado J"
         cnpj:
-          type: string          
-          example: '36194570000107'
+          type: string
+          example: "36194570000107"
         email:
-          type: string          
-          example: 'aaa@email.com'
+          type: string
+          example: "aaa@email.com"
         telefone:
           type: string
           minLength: 10
           maxLength: 11
-          pattern: ^\d{11}$ 
-          description: 'ddd + telefone'
-          example: '51998877441'
+          pattern: ^\d{11}$
+          description: "ddd + telefone"
+          example: "51998877441"
         endereco:
           type: object
           allOf:
-            - $ref: '#/components/schemas/EnderecoRequest'
+            - $ref: "#/components/schemas/EnderecoRequest"
     EnderecoRequest:
-      description: 'Representa um modelo de endereço para criação de uma empresa'
+      description: "Representa um modelo de endereço para criação de uma empresa"
       type: object
-      required: 
+      required:
         - cep
         - logradouro
         - complemento
@@ -161,74 +189,104 @@ components:
       properties:
         cep:
           type: string
-          example: '91350-300'          
+          example: "91350-300"
         logradouro:
           type: string
-          example: 'rua nova'
+          example: "rua nova"
         complemento:
           type: string
-          example: '100'
+          example: "100"
         bairro:
           type: string
-          example: 'bairro'
+          example: "bairro"
         localidade:
           type: string
-          example: 'cidade'
+          example: "cidade"
         uf:
           type: string
-          example: 'RS'
-    EmpresaResponse:
-      description: 'Representa um modelo de empresa de resposta'
+          example: "RS"
+    FuncionarioRequest:
+      description: "Representa um modelo para criação de uma empresa"
       type: object
-      required: 
+      required:
+        - nome
+        - cnpj
+        - email
+        - telefone
+        - endereco
+      properties:
+        nome:
+          type: string
+          example: "Mercado J"
+        cnpj:
+          type: string
+          example: "36194570000107"
+        email:
+          type: string
+          example: "aaa@email.com"
+        telefone:
+          type: string
+          minLength: 10
+          maxLength: 11
+          pattern: ^\d{11}$
+          description: "ddd + telefone"
+          example: "51998877441"
+        endereco:
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/EnderecoRequest"
+    EmpresaResponse:
+      description: "Representa um modelo de empresa de resposta"
+      type: object
+      required:
         - nome
         - cnpj
         - telefone
       properties:
         nome:
-          type: string          
-          example: 'Mercado J'
+          type: string
+          example: "Mercado J"
         cnpj:
-          type: string          
-          example: '36194570000107'
+          type: string
+          example: "36194570000107"
         email:
-          type: string          
-          example: 'aaa@email.com'
+          type: string
+          example: "aaa@email.com"
         telefone:
-          type: string          
-          example: '51998877441'
+          type: string
+          example: "51998877441"
         endereco:
           type: object
           properties:
             cep:
               type: string
-              example: '91350-300'          
+              example: "91350-300"
             logradouro:
               type: string
-              example: 'rua nova'
+              example: "rua nova"
             complemento:
               type: string
-              example: '100'
+              example: "100"
             bairro:
               type: string
-              example: 'bairro'
+              example: "bairro"
             localidade:
               type: string
-              example: 'cidade'
+              example: "cidade"
             uf:
               type: string
-              example: 'RS'
+              example: "RS"
     ExceptionResponse:
-      description: 'Representa um modelo de erro'
+      description: "Representa um modelo de erro"
       type: object
       properties:
         timestamp:
           type: string
           format: date
-          example: '2023-01-24T17:57:11.485+00:00'
+          example: "2023-01-24T17:57:11.485+00:00"
         message:
           type: string
-          example: 'Nome é obrigatório'
+          example: "Nome é obrigatório"
         details:
           type: string
-          example: 'uri=/empresas/'
+          example: "uri=/empresas/"
